@@ -14,6 +14,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1daA5zcFaiFbwwFRGRG96Ejqfl8" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -25,15 +28,14 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Bachelorarbeit/Skal.-DB-WindMess" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager" selected="JUnit.GenerateData.createAndInsertTestData">
-    <configuration name="CreateDatabase.createDatabase" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="CassandraSchwander300" />
+  <component name="RunManager" selected="JUnit.CreateDatabase">
+    <configuration name="CreateDatabase" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Skal.-DB-WindMess" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="CreateDatabase" />
-      <option name="METHOD_NAME" value="createDatabase" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -80,11 +82,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CreateDatabase" />
         <item itemvalue="JUnit.GenerateData.createAndInsertTestData" />
         <item itemvalue="JUnit.GenerateData.createUserData" />
         <item itemvalue="JUnit.GenerateData.createData" />
         <item itemvalue="JUnit.GenerateData.testdate" />
-        <item itemvalue="JUnit.CreateDatabase.createDatabase" />
       </list>
     </recent_temporary>
   </component>
@@ -117,10 +119,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1109" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/1920.-110.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1592656757126" />
-    <state x="1220" y="275" key="FileChooserDialogImpl" timestamp="1592902046755">
+    <state x="1220" y="275" key="FileChooserDialogImpl" timestamp="1592931422517">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1220" y="275" key="FileChooserDialogImpl/1920.-110.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1592902046755" />
+    <state x="1220" y="275" key="FileChooserDialogImpl/1920.-110.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1592931422517" />
     <state width="1877" height="348" key="GridCell.Tab.0.bottom" timestamp="1592919401361">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
