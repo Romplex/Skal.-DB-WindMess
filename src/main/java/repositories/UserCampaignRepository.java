@@ -1,16 +1,20 @@
 package repositories;
 
 import com.datastax.driver.core.Session;
+import model.Campaign;
 import model.Measurement;
+import model.User;
 import model.UserCampaign;
+
+import java.util.ArrayList;
 
 public class UserCampaignRepository
 {
     private static final String KEYSPACE = "schwander3000";
     private static final String TABLE_NAME = "user_campaign";
 
-
     private Session session;
+    private ArrayList<UserCampaign> userCampaigns = new ArrayList<UserCampaign>();
 
     public UserCampaignRepository(Session session)
     {
@@ -42,5 +46,17 @@ public class UserCampaignRepository
         session.execute("USE " + KEYSPACE);
         String query = sb.toString();
         session.execute(query);
+    }
+
+    public void insertUserCampaigns(ArrayList<UserCampaign> userCampaigns)
+    {
+        userCampaigns.forEach(this::insertUserCampaign);
+    }
+
+    public ArrayList<UserCampaign> createTestUserCampaigns(ArrayList<User> users, ArrayList<Campaign> campaigns)
+    {
+
+
+        return userCampaigns;
     }
 }

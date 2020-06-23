@@ -5,6 +5,7 @@ import com.github.javafaker.service.FakeValuesService;
 import com.github.javafaker.service.RandomService;
 import model.Campaign;
 import model.User;
+import model.UserCampaign;
 import org.junit.Before;
 import org.junit.Test;
 import repositories.*;
@@ -65,7 +66,7 @@ public class GenerateData
         ArrayList<Campaign> campaigns = campaignRepository.createTestCampaigns(CAMPAIGN_GENERATE_NUMBER);
         campaignRepository.insertCampaigns(campaigns);
 
-        
+        ArrayList<UserCampaign> userCampaign = userCampaignRepository.createTestUserCampaigns(users, campaigns);
     }
 
 }
