@@ -25,7 +25,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../FirstMavenProject" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Bachelorarbeit/Skal.-DB-WindMess" />
   </component>
   <component name="RunManager" selected="JUnit.GenerateData.createAndInsertTestData">
     <configuration name="CreateDatabase.createDatabase" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
@@ -101,7 +101,7 @@
       <workItem from="1592652653262" duration="5895000" />
       <workItem from="1592735409636" duration="1416000" />
       <workItem from="1592901285815" duration="15296000" />
-      <workItem from="1592928753091" duration="740000" />
+      <workItem from="1592928753091" duration="1535000" />
     </task>
     <servers />
   </component>
