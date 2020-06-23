@@ -1,8 +1,19 @@
 package repositories;
 
 import com.datastax.driver.core.Session;
+import com.datastax.driver.core.utils.UUIDs;
+import com.github.javafaker.Faker;
+import com.github.javafaker.service.FakeValuesService;
+import com.github.javafaker.service.RandomService;
 import model.Campaign;
 import model.Device;
+import model.User;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
+import java.util.TimeZone;
 
 public class DeviceRepository
 {
@@ -10,6 +21,7 @@ public class DeviceRepository
     private static final String TABLE_NAME = "device";
 
     private Session session;
+    private ArrayList<Device> devices = new ArrayList<Device>();
 
     public DeviceRepository(Session session)
     {
@@ -49,5 +61,38 @@ public class DeviceRepository
         session.execute("USE " + KEYSPACE);
         String query = sb.toString();
         session.execute(query);
+    }
+
+    public void insertDevices(ArrayList<Device> devices)
+    {
+        devices.forEach(device -> insertDevice(device));
+    }
+
+    public ArrayList<Device> createTestDevices(int numberOfDevices)
+    {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
+        sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
+
+        FakeValuesService fakeValuesService = new FakeValuesService(
+                new Locale("de"), new RandomService());
+
+        Faker faker = new Faker(new Locale("de"));
+
+        Device device;
+        for (int i = 0; i < numberOfDevices; i++)
+        {
+            device = new Device();
+            device.setDeviceId(UUIDs.timeBased());
+            device.setDeviceName(fakeValuesService.bothify("Device###"));
+            device.setDiskSpaceKb((int)(Math.random() * 32000000));
+            device.setTimeSync(faker.bothify("###########"));
+            device.setAvailable((int)(Math.random() * 10));
+            device.setProductKey(fakeValuesService.bothify("#??#?###?#???##"));
+            device.setTimestamp(sdf.format(new Date()));
+
+            devices.add(device);
+        }
+
+        return devices;
     }
 }

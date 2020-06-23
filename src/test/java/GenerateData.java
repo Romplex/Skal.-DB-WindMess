@@ -3,9 +3,7 @@ import com.datastax.driver.core.utils.UUIDs;
 import com.github.javafaker.Faker;
 import com.github.javafaker.service.FakeValuesService;
 import com.github.javafaker.service.RandomService;
-import model.Campaign;
-import model.User;
-import model.UserCampaign;
+import model.*;
 import org.junit.Before;
 import org.junit.Test;
 import repositories.*;
@@ -21,6 +19,7 @@ public class GenerateData
 {
     private final static int USER_GENERATE_NUMBER = 50;
     private final static int CAMPAIGN_GENERATE_NUMBER = 50;
+    private final static int DEVICE_GENERATE_NUMBER = 50;
 
     private KeyspaceRepository schemaRepository;
     private Session session;
@@ -66,7 +65,14 @@ public class GenerateData
         ArrayList<Campaign> campaigns = campaignRepository.createTestCampaigns(CAMPAIGN_GENERATE_NUMBER);
         campaignRepository.insertCampaigns(campaigns);
 
-        ArrayList<UserCampaign> userCampaign = userCampaignRepository.createTestUserCampaigns(users, campaigns);
+        ArrayList<UserCampaign> userCampaigns = userCampaignRepository.createTestUserCampaigns(users, campaigns);
+        userCampaignRepository.insertUserCampaigns(userCampaigns);
+
+        ArrayList<Device> devices = deviceRepository.createTestDevices(DEVICE_GENERATE_NUMBER);
+        deviceRepository.insertDevices(devices);
+
+        ArrayList<CampaignDevice> campaignDevices = campaignDeviceRepository.createTestCampaignDevices(campaigns, devices);
+        campaignDeviceRepository.insertCampaignDevices(campaignDevices);
     }
 
 }

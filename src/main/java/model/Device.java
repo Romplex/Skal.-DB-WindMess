@@ -23,6 +23,11 @@ public class Device
         this.timestamp = timestamp;
     }
 
+    public Device()
+    {
+
+    }
+
     public UUID getDeviceId()
     {
         return deviceId;

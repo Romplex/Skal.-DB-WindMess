@@ -15,6 +15,11 @@ public class UserCampaign
         this.campaign_id = campaign_id;
     }
 
+    public UserCampaign()
+    {
+
+    }
+
     public UUID getUser_campaign_id()
     {
         return user_campaign_id;

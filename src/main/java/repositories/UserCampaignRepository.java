@@ -1,6 +1,7 @@
 package repositories;
 
 import com.datastax.driver.core.Session;
+import com.datastax.driver.core.utils.UUIDs;
 import model.Campaign;
 import model.Measurement;
 import model.User;
@@ -55,7 +56,25 @@ public class UserCampaignRepository
 
     public ArrayList<UserCampaign> createTestUserCampaigns(ArrayList<User> users, ArrayList<Campaign> campaigns)
     {
+        int randomNumber;
+        UserCampaign userCampaign;
 
+        for (User user : users)
+        {
+            for (Campaign campaign : campaigns)
+            {
+                randomNumber = (int) (Math.random() * 20);
+                if (randomNumber == 10)
+                {
+                    userCampaign = new UserCampaign();
+                    userCampaign.setUser_campaign_id(UUIDs.timeBased());
+                    userCampaign.setUser_id(user.getUserId());
+                    userCampaign.setCampaign_id(campaign.getCampaignId());
+
+                    userCampaigns.add(userCampaign);
+                }
+            }
+        }
 
         return userCampaigns;
     }

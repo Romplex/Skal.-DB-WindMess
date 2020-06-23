@@ -20,7 +20,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="280bbb34-16b5-4972-a64b-778229561e48" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/Skal.-DB-WindMess.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/CampaignDevice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/CampaignDevice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Device.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Device.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/UserCampaign.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/UserCampaign.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/CampaignDeviceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/CampaignDeviceRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/DeviceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/DeviceRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/repositories/UserCampaignRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/UserCampaignRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/GenerateData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/GenerateData.java" afterDir="false" />
     </list>
@@ -52,6 +59,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
   </component>
   <component name="RunManager" selected="JUnit.CreateDatabase">
     <configuration name="CreateDatabase" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
@@ -128,6 +136,7 @@
       <workItem from="1592901285815" duration="15296000" />
       <workItem from="1592928753091" duration="1535000" />
       <workItem from="1592931499132" duration="811000" />
+      <workItem from="1592934932451" duration="4273000" />
     </task>
     <servers />
   </component>
@@ -144,6 +153,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1245" y="207" key="#com.intellij.ide.util.MemberChooser" timestamp="1592737529201">
@@ -190,6 +200,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="348" key="GridCell.Tab.1.right/1920.-110.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1592919401361" />
+    <state x="277" y="57" key="SettingsEditor" timestamp="1592935064970">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1592935064970" />
     <state x="690" y="284" key="extract.method.dialog" timestamp="1592912754595">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
