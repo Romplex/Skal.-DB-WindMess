@@ -35,6 +35,12 @@ public class MeasurementAvgRepository
         session.execute(query);
     }
 
+    public void clearTable()
+    {
+        session.execute("USE " + KEYSPACE);
+        session.execute("TRUNCATE " + KEYSPACE + "." + TABLE_NAME + ";");
+    }
+
     public void insertMeasurementAvg(MeasurementAvg measurementAvg)
     {
         StringBuilder sb = new StringBuilder("INSERT INTO ")

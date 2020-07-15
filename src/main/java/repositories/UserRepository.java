@@ -42,6 +42,12 @@ public class UserRepository
         session.execute(query);
     }
 
+    public void clearTable()
+    {
+        session.execute("USE " + KEYSPACE);
+        session.execute("TRUNCATE " + KEYSPACE + "." + TABLE_NAME + ";");
+    }
+
     public void insertUser(User user)
     {
         StringBuilder sb = new StringBuilder("INSERT INTO ")

@@ -45,17 +45,23 @@ public class DeviceRepository
         session.execute(query);
     }
 
+    public void clearTable()
+    {
+        session.execute("USE " + KEYSPACE);
+        session.execute("TRUNCATE " + KEYSPACE + "." + TABLE_NAME + ";");
+    }
+
     public void insertDevice(Device device)
     {
         StringBuilder sb = new StringBuilder("INSERT INTO ")
                 .append(TABLE_NAME)
-                .append("(deviceId, deviceName, diskSpaceKb, timeSync, available, produktKey, timestamp) ")
+                .append("(deviceId, deviceName, diskSpaceKb, timeSync, available, productKey, timestamp) ")
                 .append("VALUES (").append(device.getDeviceId())
                 .append(", '").append(device.getDeviceName()).append("'")
                 .append(", ").append(device.getDiskSpaceKb())
                 .append(", '").append(device.getTimeSync()).append("'")
                 .append(", ").append(device.getAvailable())
-                .append(", '").append(device.getProductKey())
+                .append(", '").append(device.getProductKey()).append("'")
                 .append(", '").append(device.getTimestamp()).append("');");
 
         session.execute("USE " + KEYSPACE);
@@ -65,7 +71,7 @@ public class DeviceRepository
 
     public void insertDevices(ArrayList<Device> devices)
     {
-        devices.forEach(device -> insertDevice(device));
+        devices.forEach(this::insertDevice);
     }
 
     public ArrayList<Device> createTestDevices(int numberOfDevices)

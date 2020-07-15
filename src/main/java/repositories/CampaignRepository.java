@@ -44,6 +44,12 @@ public class CampaignRepository
         session.execute(query);
     }
 
+    public void clearTable()
+    {
+        session.execute("USE " + KEYSPACE);
+        session.execute("TRUNCATE " + KEYSPACE + "." + TABLE_NAME + ";");
+    }
+
     public void insertCampaign(Campaign campaign)
     {
         StringBuilder sb = new StringBuilder("INSERT INTO ")

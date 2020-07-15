@@ -36,7 +36,7 @@ public class CreateDatabase
     @Test
     public void createDatabase()
     {
-        schemaRepository.createKeyspace("schwander3000", "SimpleStrategy", 1);
+        schemaRepository.createKeyspace("schwander3000", "SimpleStrategy", 2);
 
         userRepository.createTable();
         campaignRepository.createTable();

@@ -32,6 +32,12 @@ public class MeasurementRepository
         session.execute(query);
     }
 
+    public void clearTable()
+    {
+        session.execute("USE " + KEYSPACE);
+        session.execute("TRUNCATE " + KEYSPACE + "." + TABLE_NAME + ";");
+    }
+
     public void insertMeasurement(Measurement measurement)
     {
         StringBuilder sb = new StringBuilder("INSERT INTO ")

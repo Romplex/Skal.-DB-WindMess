@@ -35,6 +35,12 @@ public class UserCampaignRepository
         session.execute(query);
     }
 
+    public void clearTable()
+    {
+        session.execute("USE " + KEYSPACE);
+        session.execute("TRUNCATE " + KEYSPACE + "." + TABLE_NAME + ";");
+    }
+
     public void insertUserCampaign(UserCampaign userCampaign)
     {
         StringBuilder sb = new StringBuilder("INSERT INTO ")
@@ -56,6 +62,7 @@ public class UserCampaignRepository
 
     public ArrayList<UserCampaign> createTestUserCampaigns(ArrayList<User> users, ArrayList<Campaign> campaigns)
     {
+        int probNumber = (int)((users.size() + campaigns.size()) / 2);
         int randomNumber;
         UserCampaign userCampaign;
 
@@ -63,7 +70,7 @@ public class UserCampaignRepository
         {
             for (Campaign campaign : campaigns)
             {
-                randomNumber = (int) (Math.random() * 20);
+                randomNumber = (int) (Math.random() * probNumber);
                 if (randomNumber == 10)
                 {
                     userCampaign = new UserCampaign();

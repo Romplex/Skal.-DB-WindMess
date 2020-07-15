@@ -17,9 +17,9 @@ import java.util.TimeZone;
 
 public class GenerateData
 {
-    private final static int USER_GENERATE_NUMBER = 50;
-    private final static int CAMPAIGN_GENERATE_NUMBER = 50;
-    private final static int DEVICE_GENERATE_NUMBER = 50;
+    private final static int USER_GENERATE_NUMBER = 100;
+    private final static int CAMPAIGN_GENERATE_NUMBER = 100;
+    private final static int DEVICE_GENERATE_NUMBER = 100;
 
     private KeyspaceRepository schemaRepository;
     private Session session;
@@ -56,6 +56,17 @@ public class GenerateData
         measurementAvgRepository = new MeasurementAvgRepository(session);
     }
 
+    private void clearRepos()
+    {
+        userRepository.clearTable();
+        campaignRepository.clearTable();
+        deviceRepository.clearTable();
+        userCampaignRepository.clearTable();
+        campaignDeviceRepository.clearTable();
+        measurementRepository.clearTable();
+        measurementAvgRepository.clearTable();
+    }
+
     @Test
     public void createAndInsertTestData()
     {
@@ -75,4 +86,9 @@ public class GenerateData
         campaignDeviceRepository.insertCampaignDevices(campaignDevices);
     }
 
+    @Test
+    public void clearTables()
+    {
+        clearRepos();
+    }
 }

@@ -32,6 +32,12 @@ public class CampaignDeviceRepository
         session.execute(query);
     }
 
+    public void clearTable()
+    {
+        session.execute("USE " + KEYSPACE);
+        session.execute("TRUNCATE " + KEYSPACE + "." + TABLE_NAME + ";");
+    }
+
     public void insertCampaignDevice(CampaignDevice campaignDevice)
     {
         StringBuilder sb = new StringBuilder("INSERT INTO ")
@@ -53,6 +59,7 @@ public class CampaignDeviceRepository
 
     public ArrayList<CampaignDevice> createTestCampaignDevices(ArrayList<Campaign> campaigns, ArrayList<Device> devices)
     {
+        int probNumber = (int)((campaigns.size() + devices.size()) / 2);
         int randomNumber;
         CampaignDevice campaignDevice;
 
@@ -60,7 +67,7 @@ public class CampaignDeviceRepository
         {
             for (Device device : devices)
             {
-                randomNumber = (int) (Math.random() * 20);
+                randomNumber = (int) (Math.random() * probNumber);
                 if (randomNumber == 10)
                 {
                     campaignDevice = new CampaignDevice();
