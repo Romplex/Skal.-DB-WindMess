@@ -35,3 +35,29 @@ private final static int USER_GENERATE_NUMBER = 100;
 private final static int CAMPAIGN_GENERATE_NUMBER = 100;
 ....
 ```
+
+## Abfragen
+### Abfragen für Cassandra
+Um die Daten abzufragen stellt Cassandra **CQL** bereit. Über das Docker-Dashboard wird über den CLI Button vom CassandraCointainer1 direkt das CLI geöffnet. Dort muss die CQL Shell gestartet werden mit dem Befehl:
+```console
+cqlsh
+```
+Jetzt können Anfragen eingegeben werden. CQL orientiert sich start an SQL was die Sache erleichtert. Beispielsweise können alle Keyspaces ausgegeben werden über den Befehl
+```sql
+SELECT * FROM system_schema.keyspaces;
+```
+In den generierten Daten findet man schwander3000 als Keyspace. Um sich nun Beispielsweise alle Tabellen des Keyspaces "schwander3000" ausgeben zu lassen:
+```sql
+SELECT * FROM system_schema.tables WHERE keyspace_name = 'schwander3000';
+```
+Eine der nun aufgelisteten Tabellen ist die Tabelle "user". Lassen wir uns nun den Inhalt dieser Tabelle anzeigen:
+```sql
+SELECT * FROM schwander3000.user;
+```
+
+## Informationen über den Cluster
+Innerhalb der CLI kann man natürlich auch Informationen über den Cluster erhalten. \
+Status des Datacenters
+```console
+nodetool status
+```
