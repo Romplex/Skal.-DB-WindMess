@@ -8,17 +8,14 @@ import com.github.javafaker.service.RandomService;
 import model.Campaign;
 import model.User;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Locale;
-import java.util.TimeZone;
+import java.util.*;
 
 public class CampaignRepository
 {
     private static final String KEYSPACE = "schwander3000";
     private static final String TABLE_NAME = "campaign";
+    private static final double PROBABILITY_OF_USER_TO_CAMPAIGN_ASSIGNMENT = 0.05;
 
     private Session session;
     private ArrayList<Campaign> campaigns = new ArrayList<Campaign>();
@@ -32,12 +29,15 @@ public class CampaignRepository
     {
         StringBuilder sb = new StringBuilder("CREATE TABLE IF NOT EXISTS ")
                 .append(TABLE_NAME).append("(")
-                .append("campaignId uuid PRIMARY KEY, ")
+                .append("userId uuid,")
+                .append("campaignId uuid, ")
                 .append("startTime timestamp,")
                 .append("endTime timestamp,")
                 .append("name varchar,")
                 .append("location varchar,")
-                .append("heights varchar);");
+                .append("heights varchar,")
+                .append("PRIMARY KEY(userId, campaignId)")
+                .append(");");
 
         String query = sb.toString();
         session.execute("USE " + KEYSPACE);
@@ -50,12 +50,19 @@ public class CampaignRepository
         session.execute("TRUNCATE " + KEYSPACE + "." + TABLE_NAME + ";");
     }
 
+    public void dropTable()
+    {
+        session.execute("USE " + KEYSPACE);
+        session.execute("DROP " + KEYSPACE + "." + TABLE_NAME + ";");
+    }
+
     public void insertCampaign(Campaign campaign)
     {
         StringBuilder sb = new StringBuilder("INSERT INTO ")
                 .append(TABLE_NAME)
-                .append("(campaignId, startTime, endTime, name, location, heights) ")
-                .append("VALUES (").append(campaign.getCampaignId())
+                .append("(userId, campaignId, startTime, endTime, name, location, heights) ")
+                .append("VALUES (").append(campaign.getUserId())
+                .append(", ").append(campaign.getCampaignId())
                 .append(", '").append(campaign.getStartTime()).append("'")
                 .append(", '").append(campaign.getEndTime()).append("'")
                 .append(", '").append(campaign.getName()).append("'")
@@ -72,7 +79,7 @@ public class CampaignRepository
         campaigns.forEach(this::insertCampaign);
     }
 
-    public ArrayList<Campaign> createTestCampaigns(int numberOfCampaigns)
+    public ArrayList<Campaign> createTestCampaigns(int numberOfCampaigns, ArrayList<User> users)
     {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
         sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
@@ -88,14 +95,14 @@ public class CampaignRepository
         Date firstDate;
         Date secondDate;
 
-        int randomHours;
+        long yearInMilliseconds = (long) 365 * 24 * 60 * 60 * 1000;
+        int randomNumber;
+        boolean flag = false;
 
         for (int i = 0; i < numberOfCampaigns; i++)
         {
             campaign = new Campaign();
             campaign.setCampaignId(UUIDs.timeBased());
-
-            long yearInMilliseconds = (long) 365 * 24 * 60 * 60 * 1000;
 
             randomDateInPast = new Date(yesterday.getTime() - yearInMilliseconds);
 
@@ -115,7 +122,38 @@ public class CampaignRepository
             campaign.setLocation(faker.address().latitude() + ", " + faker.address().longitude());
             campaign.setHeights(String.valueOf(faker.number().numberBetween(3, 30)));
 
-            campaigns.add(campaign);
+            flag = false;
+            for (User user : users)
+            {
+                randomNumber = (int) (Math.random() * 20);
+                if (randomNumber == 1)
+                {
+                    campaigns.add(new Campaign(
+                            user.getUserId(),
+                            campaign.getCampaignId(),
+                            campaign.getStartTime(),
+                            campaign.getEndTime(),
+                            campaign.getName(),
+                            campaign.getLocation(),
+                            campaign.getHeights()));
+                    flag = true;
+                }
+            }
+
+            // falls der campaign kein user zugewiesen wurde, mache dies jetzt
+            if(!flag && users.size() != 0)
+            {
+                randomNumber = (int) (Math.random() * users.size());
+
+                campaigns.add(new Campaign(
+                        users.get(randomNumber).getUserId(),
+                        campaign.getCampaignId(),
+                        campaign.getStartTime(),
+                        campaign.getEndTime(),
+                        campaign.getName(),
+                        campaign.getLocation(),
+                        campaign.getHeights()));
+            }
         }
 
         return campaigns;

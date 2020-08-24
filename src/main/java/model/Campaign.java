@@ -4,6 +4,7 @@ import java.util.UUID;
 
 public class Campaign
 {
+    private UUID userId;
     private UUID campaignId;
     private String startTime;
     private String endTime;
@@ -11,8 +12,9 @@ public class Campaign
     private String location;
     private String heights;
 
-    public Campaign(UUID campaignId, String startTime, String endTime, String name, String location, String heights)
+    public Campaign(UUID userId, UUID campaignId, String startTime, String endTime, String name, String location, String heights)
     {
+        this.userId = userId;
         this.campaignId = campaignId;
         this.startTime = startTime;
         this.endTime = endTime;
@@ -84,5 +86,15 @@ public class Campaign
     public void setHeights(String heights)
     {
         this.heights = heights;
+    }
+
+    public UUID getUserId()
+    {
+        return userId;
+    }
+
+    public void setUserId(UUID userId)
+    {
+        this.userId = userId;
     }
 }

@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -19,17 +22,21 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="280bbb34-16b5-4972-a64b-778229561e48" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Skal.-DB-WindMess.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+    <list default="true" id="cac5e29f-30f4-470e-bc2d-267ea1886937" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/java/Cassandra_GenerateData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/CampaignDevice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/CampaignDevice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CassandraSchwander300.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Campaign.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Campaign.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/Device.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Device.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/UserCampaign.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/UserCampaign.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/CampaignDeviceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/CampaignDeviceRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Measurement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Measurement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/CampaignRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/CampaignRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/repositories/DeviceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/DeviceRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/UserCampaignRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/UserCampaignRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/GenerateData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/GenerateData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/MeasurementRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/MeasurementRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/CreateDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Cassandra_CreateDatabase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/GenerateData.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,66 +53,91 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA 2020.1.2\plugins\maven\lib\maven3" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProjectId" id="1daA5zcFaiFbwwFRGRG96Ejqfl8" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
+    <property name="last_opened_file_path" value="$USER_HOME$/IdeaProjects/FirstMavenProject" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
   </component>
-  <component name="RunManager" selected="JUnit.CreateDatabase">
-    <configuration name="CreateDatabase" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Skal.-DB-WindMess" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="CreateDatabase" />
+  <component name="RunManager" selected="JUnit.Querys.getAllUsers">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GenerateData.createAndInsertTestData" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Cassandra_CreateDatabase.createCassandraDatabase" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CassandraSchwander300" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GenerateData" />
+      <option name="MAIN_CLASS_NAME" value="Cassandra_CreateDatabase" />
+      <option name="METHOD_NAME" value="createCassandraDatabase" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Cassandra_CreateDatabase.createDatabase" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CassandraSchwander300" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="Cassandra_CreateDatabase" />
+      <option name="METHOD_NAME" value="createDatabase" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Cassandra_GenerateData.createAndInsertTestData" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CassandraSchwander300" />
+      <useClassPathOnly />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="Cassandra_GenerateData" />
       <option name="METHOD_NAME" value="createAndInsertTestData" />
       <option name="TEST_OBJECT" value="method" />
+      <option name="PARAMETERS" value="" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GenerateData.createData" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Cassandra_GenerateData.dropTables" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CassandraSchwander300" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GenerateData" />
-      <option name="METHOD_NAME" value="createData" />
+      <option name="MAIN_CLASS_NAME" value="Cassandra_GenerateData" />
+      <option name="METHOD_NAME" value="dropTables" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GenerateData.createUserData" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Querys.getAllUsers" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CassandraSchwander300" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GenerateData" />
-      <option name="METHOD_NAME" value="createUserData" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GenerateData.testdate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="CassandraSchwander300" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GenerateData" />
-      <option name="METHOD_NAME" value="testdate" />
+      <option name="MAIN_CLASS_NAME" value="Querys" />
+      <option name="METHOD_NAME" value="getAllUsers" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -113,20 +145,21 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CreateDatabase" />
-        <item itemvalue="JUnit.GenerateData.createAndInsertTestData" />
-        <item itemvalue="JUnit.GenerateData.createUserData" />
-        <item itemvalue="JUnit.GenerateData.createData" />
-        <item itemvalue="JUnit.GenerateData.testdate" />
+        <item itemvalue="JUnit.Querys.getAllUsers" />
+        <item itemvalue="JUnit.Cassandra_GenerateData.createAndInsertTestData" />
+        <item itemvalue="JUnit.Cassandra_CreateDatabase.createCassandraDatabase" />
+        <item itemvalue="JUnit.Cassandra_CreateDatabase.createDatabase" />
+        <item itemvalue="JUnit.Cassandra_GenerateData.dropTables" />
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="280bbb34-16b5-4972-a64b-778229561e48" name="Default Changelist" comment="" />
+      <changelist id="cac5e29f-30f4-470e-bc2d-267ea1886937" name="Default Changelist" comment="" />
       <created>1592652650465</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -137,11 +170,31 @@
       <workItem from="1592928753091" duration="1535000" />
       <workItem from="1592931499132" duration="811000" />
       <workItem from="1592934932451" duration="4273000" />
+      <workItem from="1594119164657" duration="6000" />
+      <workItem from="1594802661406" duration="8000" />
+      <workItem from="1594802709984" duration="1382000" />
+      <workItem from="1594816630264" duration="611000" />
+      <workItem from="1595068976337" duration="1333000" />
+      <workItem from="1595519537570" duration="3000" />
+      <workItem from="1595759642417" duration="13000" />
+      <workItem from="1595759710155" duration="1190000" />
+      <workItem from="1596013097279" duration="474000" />
+      <workItem from="1596013631320" duration="7775000" />
+      <workItem from="1596449776523" duration="2973000" />
+      <workItem from="1596616978047" duration="21700000" />
+      <workItem from="1596879379862" duration="682000" />
+      <workItem from="1596888396407" duration="4903000" />
+      <workItem from="1596960950643" duration="4924000" />
+      <workItem from="1597151281889" duration="1000" />
+      <workItem from="1597233441310" duration="1201000" />
+      <workItem from="1597674245830" duration="1945000" />
+      <workItem from="1597735796165" duration="2435000" />
+      <workItem from="1598259914218" duration="5331000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -155,7 +208,18 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="928" y="120" key="#GenerateData.createAndInsertTestData" timestamp="1592981721954">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="928" y="120" key="#GenerateData.createAndInsertTestData/1920.-110.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1592981721954" />
+    <state x="748" y="144" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1592981711556">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="748" y="144" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.-110.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1592981711556" />
     <state x="1245" y="207" key="#com.intellij.ide.util.MemberChooser" timestamp="1592737529201">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -164,49 +228,84 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1109" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/1920.-110.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1592656757126" />
-    <state x="1220" y="275" key="FileChooserDialogImpl" timestamp="1592931422517">
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1596627294992">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1220" y="275" key="FileChooserDialogImpl/1920.-110.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1592931422517" />
-    <state width="1877" height="281" key="GridCell.Tab.0.bottom" timestamp="1592932397854">
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.-110.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1596627294992" />
+    <state width="435" height="466" key="DebuggerActiveHint" timestamp="1596024774235">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.bottom/1920.-110.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1592932397854" />
-    <state width="1877" height="281" key="GridCell.Tab.0.center" timestamp="1592932397854">
+    <state width="435" height="466" key="DebuggerActiveHint/1920.-110.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1596024774235" />
+    <state x="1220" y="275" key="FileChooserDialogImpl" timestamp="1592990274099">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.center/1920.-110.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1592932397854" />
-    <state width="1877" height="281" key="GridCell.Tab.0.left" timestamp="1592932397853">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="1220" y="275" key="FileChooserDialogImpl/1920.-110.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1592990274099" />
+    <state width="1877" height="281" key="GridCell.Tab.0.bottom" timestamp="1598278519445">
+      <screen x="1920" y="-110" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.left/1920.-110.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1592932397853" />
-    <state width="1877" height="281" key="GridCell.Tab.0.right" timestamp="1592932397854">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1877" height="348" key="GridCell.Tab.0.bottom/1920.-110.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1596993949017" />
+    <state width="1877" height="281" key="GridCell.Tab.0.bottom/1920.-110.1920.1040/0.0.1920.1040@1920.-110.1920.1040" timestamp="1598278519445" />
+    <state width="1877" height="281" key="GridCell.Tab.0.center" timestamp="1598278519445">
+      <screen x="1920" y="-110" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.right/1920.-110.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1592932397854" />
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1592919401361">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1877" height="348" key="GridCell.Tab.0.center/1920.-110.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1596993949017" />
+    <state width="1877" height="281" key="GridCell.Tab.0.center/1920.-110.1920.1040/0.0.1920.1040@1920.-110.1920.1040" timestamp="1598278519445" />
+    <state width="1877" height="281" key="GridCell.Tab.0.left" timestamp="1598278519445">
+      <screen x="1920" y="-110" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom/1920.-110.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1592919401361" />
-    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1592919401361">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1877" height="348" key="GridCell.Tab.0.left/1920.-110.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1596993949017" />
+    <state width="1877" height="281" key="GridCell.Tab.0.left/1920.-110.1920.1040/0.0.1920.1040@1920.-110.1920.1040" timestamp="1598278519445" />
+    <state width="1877" height="281" key="GridCell.Tab.0.right" timestamp="1598278519445">
+      <screen x="1920" y="-110" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.center/1920.-110.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1592919401361" />
-    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1592919401361">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1877" height="348" key="GridCell.Tab.0.right/1920.-110.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1596993949017" />
+    <state width="1877" height="281" key="GridCell.Tab.0.right/1920.-110.1920.1040/0.0.1920.1040@1920.-110.1920.1040" timestamp="1598278519445" />
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1598277268378">
+      <screen x="1920" y="-110" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.left/1920.-110.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1592919401361" />
-    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1592919401361">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom/1920.-110.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1596993949018" />
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom/1920.-110.1920.1040/0.0.1920.1040@1920.-110.1920.1040" timestamp="1598277268378" />
+    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1598277268378">
+      <screen x="1920" y="-110" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.right/1920.-110.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1592919401361" />
+    <state width="1877" height="348" key="GridCell.Tab.1.center/1920.-110.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1596993949017" />
+    <state width="1877" height="348" key="GridCell.Tab.1.center/1920.-110.1920.1040/0.0.1920.1040@1920.-110.1920.1040" timestamp="1598277268378" />
+    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1598277268378">
+      <screen x="1920" y="-110" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.left/1920.-110.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1596993949017" />
+    <state width="1877" height="348" key="GridCell.Tab.1.left/1920.-110.1920.1040/0.0.1920.1040@1920.-110.1920.1040" timestamp="1598277268378" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1598277268378">
+      <screen x="1920" y="-110" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.right/1920.-110.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1596993949018" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right/1920.-110.1920.1040/0.0.1920.1040@1920.-110.1920.1040" timestamp="1598277268378" />
+    <state x="2410" y="65" key="Maven.ArtifactSearchDialog" timestamp="1598277432927">
+      <screen x="1920" y="-110" width="1920" height="1040" />
+    </state>
+    <state x="2410" y="65" key="Maven.ArtifactSearchDialog/1920.-110.1920.1040/0.0.1920.1040@1920.-110.1920.1040" timestamp="1598277432927" />
     <state x="277" y="57" key="SettingsEditor" timestamp="1592935064970">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1592935064970" />
+    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1596024462039">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1920.-110.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1596024462039" />
     <state x="690" y="284" key="extract.method.dialog" timestamp="1592912754595">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="284" key="extract.method.dialog/1920.-110.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1592912754595" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1596015707835">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/1920.-110.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1596015707835" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="JUnit">
+        <watch expression="stopTime" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

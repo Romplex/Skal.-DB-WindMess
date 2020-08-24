@@ -39,7 +39,6 @@
             <artifactId>javafaker</artifactId>
             <version>0.15</version>
         </dependency>
-
     </dependencies>
 
     <properties>

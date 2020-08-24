@@ -48,6 +48,12 @@ public class UserRepository
         session.execute("TRUNCATE " + KEYSPACE + "." + TABLE_NAME + ";");
     }
 
+    public void dropTable()
+    {
+        session.execute("USE " + KEYSPACE);
+        session.execute("DROP " + KEYSPACE + "." + TABLE_NAME + ";");
+    }
+
     public void insertUser(User user)
     {
         StringBuilder sb = new StringBuilder("INSERT INTO ")

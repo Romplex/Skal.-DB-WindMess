@@ -4,6 +4,7 @@ import java.util.UUID;
 
 public class Device
 {
+    private UUID campaignId;
     private UUID deviceId;
     private String deviceName;
     private int diskSpaceKb;
@@ -12,8 +13,9 @@ public class Device
     private String productKey;
     private String timestamp;
 
-    public Device(UUID deviceId, String deviceName, int diskSpaceKb, String timeSync, int available, String productKey, String timestamp)
+    public Device(UUID campaignID, UUID deviceId, String deviceName, int diskSpaceKb, String timeSync, int available, String productKey, String timestamp)
     {
+        this.campaignId = campaignID;
         this.deviceId = deviceId;
         this.deviceName = deviceName;
         this.diskSpaceKb = diskSpaceKb;
@@ -98,4 +100,13 @@ public class Device
         this.timestamp = timestamp;
     }
 
+    public UUID getCampaignId()
+    {
+        return campaignId;
+    }
+
+    public void setCampaignId(UUID campaignId)
+    {
+        this.campaignId = campaignId;
+    }
 }
