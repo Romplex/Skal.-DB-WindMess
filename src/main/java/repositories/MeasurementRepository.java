@@ -12,7 +12,7 @@ import java.util.TimeZone;
 
 public class MeasurementRepository
 {
-    private static final String KEYSPACE = "schwander3000";
+    private static final String KEYSPACE = "windMeasurementCampaign";
     private static final String TABLE_NAME = "measurement";
 
     private Session session;
@@ -24,7 +24,7 @@ public class MeasurementRepository
 
     private ArrayList<Measurement> measurements = new ArrayList<Measurement>();
 
-    public void createTable()
+    public void cassandraCreateTable()
     {
         StringBuilder sb = new StringBuilder("CREATE TABLE IF NOT EXISTS ")
                 .append(TABLE_NAME).append("(")
@@ -44,19 +44,19 @@ public class MeasurementRepository
         session.execute(query);
     }
 
-    public void clearTable()
+    public void cassandraClearTable()
     {
         session.execute("USE " + KEYSPACE);
         session.execute("TRUNCATE " + KEYSPACE + "." + TABLE_NAME + ";");
     }
 
-    public void dropTable()
+    public void cassandraDropTable()
     {
         session.execute("USE " + KEYSPACE);
         session.execute("DROP " + KEYSPACE + "." + TABLE_NAME + ";");
     }
 
-    public void insertMeasurement(Measurement measurement)
+    public void cassandraInsertMeasurement(Measurement measurement)
     {
         StringBuilder sb = new StringBuilder("INSERT INTO ")
                 .append(TABLE_NAME)
@@ -75,17 +75,17 @@ public class MeasurementRepository
         session.execute(query);
     }
 
-    public void insertMeasurements(ArrayList<Measurement> measurements)
+    public void cassandraInsertMeasurements(ArrayList<Measurement> measurements)
     {
         if(measurements == null)
         {
             return;
         }
 
-        measurements.forEach(this::insertMeasurement);
+        measurements.forEach(this::cassandraInsertMeasurement);
     }
 
-    public ArrayList<Measurement> createTestMeasurements(int numberOfMeasurements, ArrayList<Device> devices)
+    public ArrayList<Measurement> cassandraCreateTestMeasurements(int numberOfMeasurements, ArrayList<Device> devices)
     {
         if(devices.size() == 0)
         {

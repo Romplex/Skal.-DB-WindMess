@@ -16,7 +16,7 @@ import java.util.TimeZone;
 
 public class DeviceRepository
 {
-    private static final String KEYSPACE = "schwander3000";
+    private static final String KEYSPACE = "windMeasurementCampaign";
     private static final String TABLE_NAME = "device";
 
     private Session session;
@@ -27,7 +27,7 @@ public class DeviceRepository
         this.session = session;
     }
 
-    public void createTable()
+    public void cassandraCreateTable()
     {
         StringBuilder sb = new StringBuilder("CREATE TABLE IF NOT EXISTS ")
                 .append(TABLE_NAME).append("(")
@@ -48,19 +48,19 @@ public class DeviceRepository
         session.execute(query);
     }
 
-    public void clearTable()
+    public void cassandraClearTable()
     {
         session.execute("USE " + KEYSPACE);
         session.execute("TRUNCATE " + KEYSPACE + "." + TABLE_NAME + ";");
     }
 
-    public void dropTable()
+    public void cassandraDropTable()
     {
         session.execute("USE " + KEYSPACE);
         session.execute("DROP " + KEYSPACE + "." + TABLE_NAME + ";");
     }
 
-    public void insertDevice(Device device)
+    public void cassandraInsertDevice(Device device)
     {
         StringBuilder sb = new StringBuilder("INSERT INTO ")
                 .append(TABLE_NAME)
@@ -79,17 +79,17 @@ public class DeviceRepository
         session.execute(query);
     }
 
-    public void insertDevices(ArrayList<Device> devices)
+    public void cassandraInsertDevices(ArrayList<Device> devices)
     {
         if(devices == null)
         {
             return;
         }
 
-        devices.forEach(this::insertDevice);
+        devices.forEach(this::cassandraInsertDevice);
     }
 
-    public ArrayList<Device> createTestDevices(int numberOfDevices, ArrayList<Campaign> campaigns)
+    public ArrayList<Device> cassandraCreateTestDevices(int numberOfDevices, ArrayList<Campaign> campaigns)
     {
         if(campaigns.size() == 0)
         {

@@ -17,7 +17,7 @@ public class Cassandra_GenerateData
     private final static int USER_GENERATE_NUMBER = 2;
     private final static int CAMPAIGN_GENERATE_NUMBER = 5;
     private final static int DEVICE_GENERATE_NUMBER = 25;
-    private final static int MEASUREMENT_GENERATE_NUMBER = 10000;
+    private final static int MEASUREMENT_GENERATE_NUMBER = 1000;
 
     private KeyspaceRepository schemaRepository;
     private Session session;
@@ -26,7 +26,6 @@ public class Cassandra_GenerateData
     private CampaignRepository campaignRepository;
     private DeviceRepository deviceRepository;
     private MeasurementRepository measurementRepository;
-//    private MeasurementAvgRepository measurementAvgRepository;
 
 
 
@@ -34,7 +33,7 @@ public class Cassandra_GenerateData
     public void connect()
     {
         CassandraConnector client = new CassandraConnector();
-        client.connect("127.0.0.1", 52495);
+        client.connect("127.0.0.1", 60156);
         this.session = client.getSession();
         schemaRepository = new KeyspaceRepository(session);
 
@@ -49,42 +48,40 @@ public class Cassandra_GenerateData
         campaignRepository = new CampaignRepository(session);
         deviceRepository = new DeviceRepository(session);
         measurementRepository = new MeasurementRepository(session);
-//        measurementAvgRepository = new MeasurementAvgRepository(session);
     }
 
     private void clearRepos()
     {
         // Todo: dynamische Instanziierung
 
-        userRepository.clearTable();
-        campaignRepository.clearTable();
-        deviceRepository.clearTable();
-        measurementRepository.clearTable();
-//        measurementAvgRepository.clearTable();
+        userRepository.cassandraClearTable();
+        campaignRepository.cassandraClearTable();
+        deviceRepository.cassandraClearTable();
+        measurementRepository.cassandraClearTable();
     }
 
     private void dropRepos()
     {
-        userRepository.dropTable();
-        campaignRepository.dropTable();
-        deviceRepository.dropTable();
-        measurementRepository.dropTable();
+        userRepository.cassandraDropTable();
+        campaignRepository.cassandraDropTable();
+        deviceRepository.cassandraDropTable();
+        measurementRepository.cassandraDropTable();
     }
 
     @Test
     public void createAndInsertTestData() throws IOException
     {
-        ArrayList<User> users = userRepository.createTestUsers(USER_GENERATE_NUMBER);
-        userRepository.insertUsers(users);
+        ArrayList<User> users = userRepository.cassandraCreateTestUsers(USER_GENERATE_NUMBER);
+        userRepository.cassandraInsertUsers(users);
 
-        ArrayList<Campaign> campaigns = campaignRepository.createTestCampaigns(CAMPAIGN_GENERATE_NUMBER, users);
-        campaignRepository.insertCampaigns(campaigns);
+        ArrayList<Campaign> campaigns = campaignRepository.cassandraCreateTestCampaigns(CAMPAIGN_GENERATE_NUMBER, users);
+        campaignRepository.cassandraInsertCampaigns(campaigns);
 
-        ArrayList<Device> devices = deviceRepository.createTestDevices(DEVICE_GENERATE_NUMBER, campaigns);
-        deviceRepository.insertDevices(devices);
+        ArrayList<Device> devices = deviceRepository.cassandraCreateTestDevices(DEVICE_GENERATE_NUMBER, campaigns);
+        deviceRepository.cassandraInsertDevices(devices);
 
-        ArrayList<Measurement> measurements = measurementRepository.createTestMeasurements(MEASUREMENT_GENERATE_NUMBER, devices);
-        measurementRepository.insertMeasurements(measurements);
+        ArrayList<Measurement> measurements = measurementRepository.cassandraCreateTestMeasurements(MEASUREMENT_GENERATE_NUMBER, devices);
+        measurementRepository.cassandraInsertMeasurements(measurements);
     }
 
     @Test
@@ -140,21 +137,15 @@ public class Cassandra_GenerateData
 
         }
 
-        campaignRepository.insertCampaigns(campaigns);
+        campaignRepository.cassandraInsertCampaigns(campaigns);
     }
 
     @Test
     public void clearTables()
     {
         clearRepos();
+        dropRepos();
     }
-
-    // drop tables, um sie mit ihrer Struktur zu entfernen, falscher Aufruf..
-//    @Test
-//    public void dropTables()
-//    {
-//        dropRepos();
-//    }
 
 
 }

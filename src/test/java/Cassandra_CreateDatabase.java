@@ -11,16 +11,13 @@ public class Cassandra_CreateDatabase
     private UserRepository userRepository;
     private CampaignRepository campaignRepository;
     private DeviceRepository deviceRepository;
-    private UserCampaignRepository userCampaignRepository;
-    private CampaignDeviceRepository campaignDeviceRepository;
     private MeasurementRepository measurementRepository;
-    private MeasurementAvgRepository measurementAvgRepository;
 
     @Before
     public void connect()
     {
         CassandraConnector client = new CassandraConnector();
-        client.connect("127.0.0.1", 55973);
+        client.connect("127.0.0.1", 51543);
         this.session = client.getSession();
         schemaRepository = new KeyspaceRepository(session);
 
@@ -28,19 +25,17 @@ public class Cassandra_CreateDatabase
         campaignRepository = new CampaignRepository(session);
         deviceRepository = new DeviceRepository(session);
         measurementRepository = new MeasurementRepository(session);
-//        measurementAvgRepository = new MeasurementAvgRepository(session);
     }
 
     @Test
     public void createCassandraDatabase()
     {
-        schemaRepository.createKeyspace("schwander3000", "SimpleStrategy", 2);
+        schemaRepository.createKeyspace("windMeasurementCampaign", "SimpleStrategy", 2);
 
-        userRepository.createTable();
-        campaignRepository.createTable();
-        deviceRepository.createTable();
-        measurementRepository.createTable();
-//        measurementAvgRepository.createTable();
+        userRepository.cassandraCreateTable();
+        campaignRepository.cassandraCreateTable();
+        deviceRepository.cassandraCreateTable();
+        measurementRepository.cassandraCreateTable();
 
         // TODO testen ob alle erstellt sind
     }

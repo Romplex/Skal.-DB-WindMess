@@ -13,7 +13,7 @@ import java.util.*;
 
 public class CampaignRepository
 {
-    private static final String KEYSPACE = "schwander3000";
+    private static final String KEYSPACE = "windMeasurementCampaign";
     private static final String TABLE_NAME = "campaign";
     private static final double PROBABILITY_OF_USER_TO_CAMPAIGN_ASSIGNMENT = 0.05;
 
@@ -25,7 +25,7 @@ public class CampaignRepository
         this.session = session;
     }
 
-    public void createTable()
+    public void cassandraCreateTable()
     {
         StringBuilder sb = new StringBuilder("CREATE TABLE IF NOT EXISTS ")
                 .append(TABLE_NAME).append("(")
@@ -44,19 +44,19 @@ public class CampaignRepository
         session.execute(query);
     }
 
-    public void clearTable()
+    public void cassandraClearTable()
     {
         session.execute("USE " + KEYSPACE);
         session.execute("TRUNCATE " + KEYSPACE + "." + TABLE_NAME + ";");
     }
 
-    public void dropTable()
+    public void cassandraDropTable()
     {
         session.execute("USE " + KEYSPACE);
         session.execute("DROP " + KEYSPACE + "." + TABLE_NAME + ";");
     }
 
-    public void insertCampaign(Campaign campaign)
+    public void cassandraInsertCampaign(Campaign campaign)
     {
         StringBuilder sb = new StringBuilder("INSERT INTO ")
                 .append(TABLE_NAME)
@@ -74,12 +74,12 @@ public class CampaignRepository
         session.execute(query);
     }
 
-    public void insertCampaigns(ArrayList<Campaign> campaigns)
+    public void cassandraInsertCampaigns(ArrayList<Campaign> campaigns)
     {
-        campaigns.forEach(this::insertCampaign);
+        campaigns.forEach(this::cassandraInsertCampaign);
     }
 
-    public ArrayList<Campaign> createTestCampaigns(int numberOfCampaigns, ArrayList<User> users)
+    public ArrayList<Campaign> cassandraCreateTestCampaigns(int numberOfCampaigns, ArrayList<User> users)
     {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
         sdf.setTimeZone(TimeZone.getTimeZone("UTC"));

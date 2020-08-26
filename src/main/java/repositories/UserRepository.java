@@ -12,7 +12,7 @@ import java.util.*;
 
 public class UserRepository
 {
-    private static final String KEYSPACE = "schwander3000";
+    private static final String KEYSPACE = "windMeasurementCampaign";
     private static final String TABLE_NAME = "user";
 
     private Session session;
@@ -23,7 +23,7 @@ public class UserRepository
         this.session = session;
     }
 
-    public void createTable()
+    public void cassandraCreateTable()
     {
         StringBuilder sb = new StringBuilder("CREATE TABLE IF NOT EXISTS ")
                 .append(TABLE_NAME).append("(")
@@ -42,19 +42,19 @@ public class UserRepository
         session.execute(query);
     }
 
-    public void clearTable()
+    public void cassandraClearTable()
     {
         session.execute("USE " + KEYSPACE);
         session.execute("TRUNCATE " + KEYSPACE + "." + TABLE_NAME + ";");
     }
 
-    public void dropTable()
+    public void cassandraDropTable()
     {
         session.execute("USE " + KEYSPACE);
         session.execute("DROP " + KEYSPACE + "." + TABLE_NAME + ";");
     }
 
-    public void insertUser(User user)
+    public void cassandraInsertUser(User user)
     {
         StringBuilder sb = new StringBuilder("INSERT INTO ")
                 .append(TABLE_NAME)
@@ -74,12 +74,12 @@ public class UserRepository
         session.execute(query);
     }
 
-    public void insertUsers(ArrayList<User> users)
+    public void cassandraInsertUsers(ArrayList<User> users)
     {
-        users.forEach(this::insertUser);
+        users.forEach(this::cassandraInsertUser);
     }
 
-    public ArrayList<User> createTestUsers(int numberOfUsers)
+    public ArrayList<User> cassandraCreateTestUsers(int numberOfUsers)
     {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
         sdf.setTimeZone(TimeZone.getTimeZone("UTC"));

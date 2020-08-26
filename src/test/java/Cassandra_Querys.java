@@ -7,13 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 import repositories.*;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
-
-import static org.junit.Assert.assertEquals;
-
-public class Querys
+public class Cassandra_Querys
 {
     private KeyspaceRepository schemaRepository;
     private Session session;
@@ -31,17 +25,14 @@ public class Querys
         userRepository = new UserRepository(session);
         campaignRepository = new CampaignRepository(session);
         deviceRepository = new DeviceRepository(session);
-//        userCampaignRepository = new UserCampaignRepository(session);
-//        campaignDeviceRepository = new CampaignDeviceRepository(session);
         measurementRepository = new MeasurementRepository(session);
-//        measurementAvgRepository = new MeasurementAvgRepository(session);
     }
 
     @Before
     public void connect()
     {
         CassandraConnector client = new CassandraConnector();
-        client.connect("127.0.0.1", 52893);
+        client.connect("127.0.0.1", 60156);
         this.session = client.getSession();
         schemaRepository = new KeyspaceRepository(session);
 
@@ -54,7 +45,7 @@ public class Querys
         long startTime = System.nanoTime();
 
         ResultSet result = session.execute(
-                "SELECT * FROM schwander3000.user;");
+                "SELECT count(*) FROM windMeasurementCampaign.measurement;");
 
         result.forEach(System.out::println);
 
