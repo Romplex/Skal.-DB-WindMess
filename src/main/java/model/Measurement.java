@@ -4,6 +4,8 @@ import java.util.UUID;
 
 public class Measurement
 {
+    private UUID campaignId;
+    private UUID deviceId;
     private UUID measurementId;
     private double windspeedMs;
     private double heightM;
@@ -11,14 +13,21 @@ public class Measurement
     private double cnr;
     private String timestamp;
 
-    public Measurement(UUID measurementId, double windspeedMs, double heightM, double direction, double cnr, String timestamp)
+    public Measurement(UUID campaignId, UUID deviceId, UUID measurementId, double windspeedMs, double heightM, double direction, double cnr, String timestamp)
     {
+        this.campaignId = campaignId;
+        this.deviceId = deviceId;
         this.measurementId = measurementId;
         this.windspeedMs = windspeedMs;
         this.heightM = heightM;
         this.direction = direction;
         this.cnr = cnr;
         this.timestamp = timestamp;
+    }
+
+    public Measurement()
+    {
+
     }
 
     public UUID getMeasurementId()
@@ -79,5 +88,25 @@ public class Measurement
     public void setTimestamp(String timestamp)
     {
         this.timestamp = timestamp;
+    }
+
+    public UUID getCampaignId()
+    {
+        return campaignId;
+    }
+
+    public void setCampaignId(UUID campaignId)
+    {
+        this.campaignId = campaignId;
+    }
+
+    public UUID getDeviceId()
+    {
+        return deviceId;
+    }
+
+    public void setDeviceId(UUID deviceId)
+    {
+        this.deviceId = deviceId;
     }
 }

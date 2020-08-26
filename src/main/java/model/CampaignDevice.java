@@ -15,6 +15,11 @@ public class CampaignDevice
         this.device_id = device_id;
     }
 
+    public CampaignDevice()
+    {
+
+    }
+
     public UUID getCampaign_device_id()
     {
         return campaign_device_id;

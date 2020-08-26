@@ -1,16 +1,18 @@
 package repositories;
 
 import com.datastax.driver.core.Session;
-import model.Campaign;
-import model.CampaignDevice;
+import com.datastax.driver.core.utils.UUIDs;
+import model.*;
+
+import java.util.ArrayList;
 
 public class CampaignDeviceRepository
 {
     private static final String KEYSPACE = "schwander3000";
     private static final String TABLE_NAME = "campaign_device";
 
-
     private Session session;
+    private ArrayList<CampaignDevice> campaignDevices = new ArrayList<CampaignDevice>();
 
     public CampaignDeviceRepository(Session session)
     {
@@ -30,6 +32,12 @@ public class CampaignDeviceRepository
         session.execute(query);
     }
 
+    public void clearTable()
+    {
+        session.execute("USE " + KEYSPACE);
+        session.execute("TRUNCATE " + KEYSPACE + "." + TABLE_NAME + ";");
+    }
+
     public void insertCampaignDevice(CampaignDevice campaignDevice)
     {
         StringBuilder sb = new StringBuilder("INSERT INTO ")
@@ -42,5 +50,36 @@ public class CampaignDeviceRepository
         session.execute("USE " + KEYSPACE);
         String query = sb.toString();
         session.execute(query);
+    }
+
+    public void insertCampaignDevices(ArrayList<CampaignDevice> campaignDevices)
+    {
+        campaignDevices.forEach(this::insertCampaignDevice);
+    }
+
+    public ArrayList<CampaignDevice> createTestCampaignDevices(ArrayList<Campaign> campaigns, ArrayList<Device> devices)
+    {
+        int probNumber = (int)((campaigns.size() + devices.size()) / 2);
+        int randomNumber;
+        CampaignDevice campaignDevice;
+
+        for (Campaign campaign : campaigns)
+        {
+            for (Device device : devices)
+            {
+                randomNumber = (int) (Math.random() * probNumber);
+                if (randomNumber == 10)
+                {
+                    campaignDevice = new CampaignDevice();
+                    campaignDevice.setCampaign_device_id(UUIDs.timeBased());
+                    campaignDevice.setCampaign_id(campaign.getCampaignId());
+                    campaignDevice.setDevice_id(device.getDeviceId());
+
+                    campaignDevices.add(campaignDevice);
+                }
+            }
+        }
+
+        return campaignDevices;
     }
 }
